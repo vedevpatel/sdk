@@ -1,0 +1,36 @@
+{
+  "name": "faultline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A failure-injection lab for durable agent tool calls.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@ai-sdk/workflow": "2.0.27",
+    "ai": "7.0.96",
+    "next": "16.3.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "workflow": "5.0.0-beta.48",
+    "zod": "^4.1.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^5"
+  },
+  "packageManager": "pnpm@10.33.3"
+}
