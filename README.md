@@ -13,6 +13,26 @@ invariants for each run.
 
 ![Faultline comparison view](docs/screenshot.png)
 
+### Real Workflow SDK runtime experiment
+
+Faultline also reproduces the failure boundary using the actual Workflow SDK runtime via `@workflow/vitest`.
+
+A `"use step"` function:
+
+1. commits a simulated external effect,
+2. throws before returning success,
+3. is re-executed by the workflow runtime with `attempt: 1 → 2`.
+
+Observed:
+
+| Strategy | Step invocations | Effects |
+| --- | ---: | ---: |
+| Naive retry | 2 | 2 |
+| Idempotent + reconcile | 2 | 1 |
+
+This is expected at-least-once execution behavior, not an SDK bug. Run it with
+`pnpm test:runtime`; full writeup in [`docs/RUNTIME_EXPERIMENT.md`](docs/RUNTIME_EXPERIMENT.md).
+
 ## The failure
 
 - Durable execution (e.g. AI SDK's `WorkflowAgent`) can retry a tool step after an interruption.
@@ -125,20 +145,6 @@ pnpm build        # next build
 The suite tests every fault point × both strategies, the critical duplicate /
 reconcile assertions, malformed API requests, the retry bound, stable operation
 id, reconciliation, provider unavailability, and normalized-trace determinism.
-
-## Runtime experiment
-
-The lab above models retries in its own executor loop for determinism. A
-separate, additive integration test runs a real Workflow SDK workflow/step
-through the actual runtime (in-process Local World via `@workflow/vitest`),
-interrupts the step after its commit but before it reports success, and shows
-the runtime re-executing it — naive duplicates the effect, idempotent does not.
-
-```bash
-pnpm test:runtime
-```
-
-Details and observed results: [`docs/RUNTIME_EXPERIMENT.md`](docs/RUNTIME_EXPERIMENT.md).
 
 ## Environment variables
 
