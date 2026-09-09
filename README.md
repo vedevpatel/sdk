@@ -141,8 +141,8 @@ variables.
 - The payment provider is **simulated and deterministic**. No real money or network calls occur.
 - Faultline is a **failure-semantics lab, not a payment system**.
 - The tests demonstrate the correctness of the **implemented recovery protocol**, not a property of any specific external provider.
-- Faultline does **not** claim any AI SDK or Workflow SDK vulnerability or bug. No such claim should be made unless it is independently reproduced and demonstrated.
-
+- This project does **not claim an AI SDK or Workflow SDK bug**; the goal is to explore failure behavior around side-effecting tool calls.
+  
 ## Related work
 
 - [AI SDK — Agents / WorkflowAgent](https://ai-sdk.dev/docs)
