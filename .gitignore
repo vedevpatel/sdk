@@ -34,3 +34,7 @@ yarn-error.log*
 # editor
 .vscode
 .idea
+
+# next dev auto-generated agent files
+/AGENTS.md
+/CLAUDE.md
