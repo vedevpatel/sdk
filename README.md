@@ -126,6 +126,20 @@ The suite tests every fault point × both strategies, the critical duplicate /
 reconcile assertions, malformed API requests, the retry bound, stable operation
 id, reconciliation, provider unavailability, and normalized-trace determinism.
 
+## Runtime experiment
+
+The lab above models retries in its own executor loop for determinism. A
+separate, additive integration test runs a real Workflow SDK workflow/step
+through the actual runtime (in-process Local World via `@workflow/vitest`),
+interrupts the step after its commit but before it reports success, and shows
+the runtime re-executing it — naive duplicates the effect, idempotent does not.
+
+```bash
+pnpm test:runtime
+```
+
+Details and observed results: [`docs/RUNTIME_EXPERIMENT.md`](docs/RUNTIME_EXPERIMENT.md).
+
 ## Environment variables
 
 Faultline runs fully in its default deterministic mode with **no** environment

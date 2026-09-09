@@ -5,7 +5,12 @@ const eslintConfig = [
   ...nextCoreWebVitals,
   ...nextTypescript,
   {
-    ignores: [".next/**", "node_modules/**"],
+    ignores: [
+      ".next/**",
+      "node_modules/**",
+      ".workflow-vitest/**",
+      ".workflow-data/**",
+    ],
   },
 ];
 
