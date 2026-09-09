@@ -1,5 +1,7 @@
 # Faultline
 
+## Failure-injection lab for durable AI agent tool calls using Vercel AI SDK 7 WorkflowAgent.
+
 **Break an agent between commit and acknowledgment.** A failure-injection lab
 for durable agent tool calls.
 
