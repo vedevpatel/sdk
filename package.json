@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:runtime": "vitest run --config vitest.workflow.config.mts"
   },
   "dependencies": {
     "@ai-sdk/workflow": "2.0.27",
@@ -26,6 +27,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@workflow/vitest": "5.0.0-beta.50",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
